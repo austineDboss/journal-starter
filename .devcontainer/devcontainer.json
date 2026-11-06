@@ -15,6 +15,7 @@
   "workspaceFolder": "/workspaces/",
   "runServices": ["postgres"],
   "forwardPorts": [8000],
+  "postCreateCommand": "git config --global --add safe.directory /workspaces",
   "portsAttributes": {
     "8000": {
       "label": "FastAPI"
