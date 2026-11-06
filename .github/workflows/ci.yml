@@ -176,6 +176,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t "$IMAGE" .
-          docker push "$IMAGE"
+          docker build -t "$IMAGE" -t $IMAGE:v2 .
+          docker push "$IMAGE:v2"
 
