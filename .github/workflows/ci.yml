@@ -160,7 +160,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     env:
-      IMAGE: ${{ secrets.ECR_REGISTRY }}/journal-api:${{ github.sha }}
+      IMAGE: ${{ secrets.ECR_REGISTRY }}/journal-api
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -176,6 +176,6 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t "$IMAGE" -t "$IMAGE:v2" .
+          docker build -t "$IMAGE:${{ github.sha }}" -t "$IMAGE:v2" .
           docker push "$IMAGE:v2"
 
